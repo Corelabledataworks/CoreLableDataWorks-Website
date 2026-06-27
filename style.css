@@ -246,9 +246,11 @@ body {
     transform: translateY(-12px) scale(1.03);
     border-color: #33b5ff;
     box-shadow:
-        0 0 25px rgba(51,181,255,.25),
-        0 20px 45px rgba(0,0,0,.45);
-    background: linear-gradient(180deg,#101b30,#16294a);
+        0 0 20px rgba(51,181,255,.45),
+        0 0 45px rgba(51,181,255,.25),
+        0 20px 40px rgba(0,0,0,.45);
+    background: linear-gradient(145deg,#132847,#101b30);
+}
 }
 
 .service-card h3 {
