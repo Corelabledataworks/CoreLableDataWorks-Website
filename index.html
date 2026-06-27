@@ -99,17 +99,17 @@ and business support operations through managed workforce solutions.
     <div class="service-grid">
 
         <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-            <h3>16+</h3>
+            <h3><span class="counter" data-target="16">0</span>+</h3>
             <p>Skilled Team Members</p>
         </div>
 
         <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-            <h3>6+</h3>
+            <h3><span class="counter" data-target="6">0</span>+</h3>
             <p>Data Services Offered</p>
         </div>
 
         <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
-            <h3>99%</h3>
+            <h3><span class="counter" data-target="99">0</span>%</h3>
             <p>Quality Accuracy Target</p>
         </div>
 
@@ -534,6 +534,36 @@ AOS.init({
     once: true,
     easing: "ease-in-out"
 });
+</script>
+<script>
+const counters = document.querySelectorAll('.counter');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      const counter = entry.target;
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+
+      const update = () => {
+        const increment = Math.ceil(target / 60);
+
+        if (count < target) {
+          count += increment;
+          if (count > target) count = target;
+          counter.innerText = count;
+          requestAnimationFrame(update);
+        }
+      };
+
+      update();
+      observer.unobserve(counter);
+    }
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => observer.observe(counter));
 </script>
 </body>
 </html>
