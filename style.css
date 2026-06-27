@@ -224,13 +224,31 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: .35s;
+    transition: all .45s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
 }
-
+.service-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:3px;
+    background:linear-gradient(90deg,transparent,#33b5ff,transparent);
+    transition:.6s;
+}
+.service-card:hover::before{
+    left:100%;
+}
 .service-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-12px) scale(1.03);
     border-color: #33b5ff;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+    box-shadow:
+        0 0 25px rgba(51,181,255,.25),
+        0 20px 45px rgba(0,0,0,.45);
+    background: linear-gradient(180deg,#101b30,#16294a);
 }
 
 .service-card h3 {
