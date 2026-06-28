@@ -126,23 +126,52 @@ body {
     text-decoration: none;
     font-size: 18px;
     font-weight: 700;
-    transition: .3s;
+    transition: all .35s ease;
+    position: relative;
+    overflow: hidden;
+}
+.btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+    transform:skewX(-25deg);
+    transition:left .6s ease;
 }
 
+.btn:hover::before{
+    left:140%;
+}
 .btn-primary {
     background: #00aaff;
     color: white;
     box-shadow: 0 0 25px rgba(0, 170, 255, .45);
 }
 
-.btn-primary:hover {
-    transform: translateY(-4px);
-    background: #0095d9;
+.btn-primary:hover{
+    transform:translateY(-6px) scale(1.05);
+    background:#0095d9;
+    box-shadow:
+        0 0 20px rgba(0,170,255,.6),
+        0 0 40px rgba(0,170,255,.35);
 }
 
-.btn-secondary {
-    border: 2px solid #ffffff;
-    color: #ffffff;
+.btn-secondary:hover{
+    transform:translateY(-6px) scale(1.05);
+    background:#00aaff;
+    color:#fff;
+    border-color:#00aaff;
+    box-shadow:
+        0 0 20px rgba(0,170,255,.5),
+        0 0 35px rgba(0,170,255,.3);
 }
 
 .btn-secondary:hover {
