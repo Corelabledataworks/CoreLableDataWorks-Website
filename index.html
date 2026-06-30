@@ -564,6 +564,16 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 counters.forEach(counter => observer.observe(counter));
+window.addEventListener("scroll", () => {
+    const navbar = document.querySelector("#navbar");
+
+    if (window.scrollY > 30) {
+        navbar.classList.add("navbar-scrolled");
+    } else {
+        navbar.classList.remove("navbar-scrolled");
+    }
+});
+
 </script>
 </body>
 </html>
